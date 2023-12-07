@@ -1,0 +1,16 @@
+services:
+  server:
+    container_name: rolls-server
+    image: rolls-server
+    ports:
+      - '20101:20101'
+  db:
+        container_name: rolls_db
+        image: postgres
+        restart: always
+        environment:
+          POSTGRES_USER: roll
+          POSTGRES_PASSWORD: sushi
+          POSTGRES_DB: rolls_db
+        ports:
+            - "5432:5432"
