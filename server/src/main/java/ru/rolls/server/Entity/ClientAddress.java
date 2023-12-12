@@ -1,8 +1,5 @@
 package ru.rolls.server.Entity;
 
-import java.util.List;
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,31 +20,28 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="clients", indexes = {
-    @Index(name = "idx_client_phone", columnList="phone", unique=true)
-})
+@Table(name="client_address")
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client {
+public class ClientAddress {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    @Column(unique = true, length = 11)
-    private String phone;
 
-    private UUID code;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    private DeliveryAddress Address;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-    private List<Order> orders;
-
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-    private List<CartPosition> cartPositions;
+    private Integer flat;
+    
 }

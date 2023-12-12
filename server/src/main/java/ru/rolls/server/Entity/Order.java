@@ -1,6 +1,7 @@
 package ru.rolls.server.Entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -57,8 +59,8 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     private Restaurant restaurant;
 
-    @Column(length = 5)
-    private String flat;
+    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    private List<OrderPosition> OrderPositions;
 
 
 }
