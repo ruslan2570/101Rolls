@@ -51,6 +51,9 @@ public class Employee {
     @OneToMany(mappedBy = "deliverer", fetch = FetchType.LAZY)
     private List<Order> orders;
 
+    @OneToMany(mappedBy = "operator", fetch = FetchType.LAZY)
+    private List<DeliveryAddress> checkedAddresses;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EmployeeRole role;

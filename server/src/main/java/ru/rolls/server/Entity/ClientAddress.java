@@ -1,14 +1,14 @@
 package ru.rolls.server.Entity;
 
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -43,5 +43,8 @@ public class ClientAddress {
     private DeliveryAddress Address;
 
     private Integer flat;
+
+    @OneToMany(mappedBy = "client_address", fetch = FetchType.LAZY)
+    private List<Order> orders;
     
 }

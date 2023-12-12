@@ -51,7 +51,7 @@ public class Order {
     private IssueType issueType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private DeliveryAddress deliveryAddress;
+    private ClientAddress deliveryAddress;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee deliverer;

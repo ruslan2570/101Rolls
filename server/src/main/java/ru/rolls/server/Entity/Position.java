@@ -59,5 +59,8 @@ public class Position {
 
     @OneToMany(mappedBy = "positions", fetch = FetchType.LAZY)
     private List<OrderPosition> orderPositions;
+
+    @OneToMany(mappedBy = "positions", fetch = FetchType.LAZY)
+    private List<CartPosition> cartPositions;
     
 }

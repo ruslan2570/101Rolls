@@ -1,6 +1,7 @@
 package ru.rolls.server.Entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 
 import lombok.EqualsAndHashCode;
@@ -43,8 +45,12 @@ public class DeliveryAddress {
     private Boolean isChecked;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Employee operatorId;
+    private Employee operator;
 
     private LocalDateTime checkingDate;
+
+    @OneToMany(mappedBy = "addresses", fetch = FetchType.LAZY)
+    private List<ClientAddress> clientAddresses;
+
 
 }

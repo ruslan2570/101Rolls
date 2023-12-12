@@ -47,4 +47,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private List<CartPosition> cartPositions;
+
+    @OneToMany(mappedBy = "clients", fetch = FetchType.LAZY)
+    private List<ClientAddress> clientAddresses;
 }
