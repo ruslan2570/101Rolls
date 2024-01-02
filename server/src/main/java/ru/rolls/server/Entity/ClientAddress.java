@@ -39,7 +39,7 @@ public class ClientAddress {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "delivery_address")
     private DeliveryAddress Address;
 
     private Integer flat;

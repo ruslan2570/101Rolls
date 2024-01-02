@@ -21,13 +21,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="orders")
+@Table(name = "orders")
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
 public class Order {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -37,9 +37,6 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
-    private Client clientId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     private Client client;
 
     @Enumerated(EnumType.ORDINAL)
@@ -51,6 +48,7 @@ public class Order {
     private IssueType issueType;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_address_id")
     private ClientAddress deliveryAddress;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -60,7 +58,6 @@ public class Order {
     private Restaurant restaurant;
 
     @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
-    private List<OrderPosition> OrderPositions;
-
+    private List<OrderPosition> orderPositions;
 
 }

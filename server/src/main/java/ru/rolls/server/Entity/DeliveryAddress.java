@@ -49,7 +49,7 @@ public class DeliveryAddress {
 
     private LocalDateTime checkingDate;
 
-    @OneToMany(mappedBy = "addresses", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "delivery_address", fetch = FetchType.LAZY)
     private List<ClientAddress> clientAddresses;
 
 

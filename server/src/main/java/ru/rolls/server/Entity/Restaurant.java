@@ -46,10 +46,10 @@ public class Restaurant {
     @Column(nullable = false)
     private Boolean isManuallyClosed;
 
-    @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
     private List<Employee> employees;
 
-    @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
     private List<Order> orders;
 
 
