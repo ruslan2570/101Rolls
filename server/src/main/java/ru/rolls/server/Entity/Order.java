@@ -36,7 +36,7 @@ public class Order {
     private LocalDateTime orderDateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(name="client_id", nullable = false)
     private Client client;
 
     @Enumerated(EnumType.ORDINAL)
@@ -48,10 +48,11 @@ public class Order {
     private IssueType issueType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_address_id")
+    @JoinColumn(name = "client_address_id", nullable = true)
     private ClientAddress deliveryAddress;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "deliverer_id", nullable = true)
     private Employee deliverer;
 
     @ManyToOne(fetch = FetchType.LAZY)

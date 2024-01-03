@@ -33,7 +33,7 @@ public class Ingredient {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "category")
+    @ManyToMany(mappedBy = "ingredients")
     private List<Position> positions;
     
 }

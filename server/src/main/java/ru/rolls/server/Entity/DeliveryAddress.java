@@ -10,18 +10,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import jakarta.persistence.JoinColumn;
+
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="addresses")
+@Table(name="delivery_addresses")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 public class DeliveryAddress {
@@ -45,11 +52,12 @@ public class DeliveryAddress {
     private Boolean isChecked;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "operator_id", nullable = true)
     private Employee operator;
 
     private LocalDateTime checkingDate;
 
-    @OneToMany(mappedBy = "delivery_address", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "delivery_addresses", fetch = FetchType.LAZY)
     private List<ClientAddress> clientAddresses;
 
 

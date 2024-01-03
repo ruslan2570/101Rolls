@@ -2,6 +2,7 @@ package ru.rolls.server.Entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -39,10 +40,11 @@ public class ClientAddress {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "delivery_address")
-    private DeliveryAddress Address;
+    @JoinColumn(name = "delivery_address_id")
+    private DeliveryAddress address;
 
-    private Integer flat;
+    @Column(name="flat", nullable = true, length = 5)
+    private String flat;
 
     @OneToMany(mappedBy = "client_address", fetch = FetchType.LAZY)
     private List<Order> orders;

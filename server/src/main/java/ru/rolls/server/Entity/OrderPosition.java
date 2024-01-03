@@ -1,7 +1,5 @@
 package ru.rolls.server.Entity;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,16 +29,16 @@ public class OrderPosition {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "position_id")
+    @JoinColumn(name = "position_id", nullable = false)
     private Position position;
 
 
-    @Column(nullable = false, scale = 2)
-    private BigDecimal pricePerPosition;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private Double pricePerPosition;
 
     private int quantity;
 

@@ -1,6 +1,5 @@
 package ru.rolls.server.Entity;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -41,16 +40,17 @@ public class Position {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @Column(nullable = false)
-    private BigDecimal weight;
+    private Double weight;
 
     @Column(nullable = false)
     private Integer quantity;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal price;
+    private Double price;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -60,11 +60,10 @@ public class Position {
     )
     private List<Ingredient> ingredients;
 
-
-    @OneToMany(mappedBy = "positions", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "position", fetch = FetchType.LAZY)
     private List<OrderPosition> orderPositions;
 
-    @OneToMany(mappedBy = "positions", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "position", fetch = FetchType.LAZY)
     private List<CartPosition> cartPositions;
     
 }
