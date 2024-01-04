@@ -1,5 +1,6 @@
 package ru.rolls.server.Entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -43,14 +44,14 @@ public class Position {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @Column(nullable = false)
-    private Double weight;
+    @Column(nullable = true)
+    private Integer weight;
 
     @Column(nullable = false)
     private Integer quantity;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private Double price;
+    private BigDecimal price;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

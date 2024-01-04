@@ -1,5 +1,7 @@
 package ru.rolls.server.Entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -38,7 +40,7 @@ public class OrderPosition {
 
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private Double pricePerPosition;
+    private BigDecimal pricePerPosition;
 
     private int quantity;
 

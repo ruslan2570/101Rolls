@@ -49,7 +49,7 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_address_id", nullable = true)
-    private ClientAddress deliveryAddress;
+    private ClientAddress clientAddress;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "deliverer_id", nullable = true)
@@ -58,7 +58,7 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     private Restaurant restaurant;
 
-    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
     private List<OrderPosition> orderPositions;
 
 }

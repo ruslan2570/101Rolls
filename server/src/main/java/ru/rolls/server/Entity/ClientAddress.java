@@ -46,7 +46,7 @@ public class ClientAddress {
     @Column(name="flat", nullable = true, length = 5)
     private String flat;
 
-    @OneToMany(mappedBy = "client_address", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "clientAddress", fetch = FetchType.LAZY)
     private List<Order> orders;
     
 }
