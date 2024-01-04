@@ -6,4 +6,5 @@ import ru.rolls.server.Entity.Employee;
 
 public interface EmployeeRepo extends CrudRepository<Employee, Long>{
     
+    public Employee findByLogin(String login);
 }
