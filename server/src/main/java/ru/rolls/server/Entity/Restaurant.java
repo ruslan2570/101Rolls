@@ -1,5 +1,6 @@
 package ru.rolls.server.Entity;
 
+import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +22,7 @@ import lombok.ToString;
 @Table(name="restaurants")
 @Getter
 @Setter
+@Builder
 @ToString
 @EqualsAndHashCode
 public class Restaurant {
@@ -40,11 +43,14 @@ public class Restaurant {
     @Column(nullable = false)
     private Integer maxDistance;
 
-    @Column(nullable = false)
-    private Double minOrderSum;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal minOrderSum;
 
     @Column(nullable = false)
-    private Boolean isManuallyClosed;
+    private Boolean isTemporaryClosed;
+
+    @Column(nullable = false)
+    private Boolean isClosed;
 
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
     private List<Employee> employees;
