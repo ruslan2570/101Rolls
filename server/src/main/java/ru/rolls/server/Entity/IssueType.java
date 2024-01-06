@@ -11,7 +11,7 @@ public enum IssueType {
             case DELIVERY:
                 return "Доставка";
             default:
-                throw new IllegalArgumentException("Unsupported role: " + this);
+                throw new IllegalArgumentException("Unsupported type of issue: " + this);
         }
     }
 }
