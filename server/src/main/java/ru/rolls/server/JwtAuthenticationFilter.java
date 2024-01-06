@@ -19,9 +19,9 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import ru.rolls.server.Entity.Token;
-import ru.rolls.server.Repo.TokenRepo;
-import ru.rolls.server.Service.JwtService;
+import ru.rolls.server.entity.Token;
+import ru.rolls.server.repo.TokenRepo;
+import ru.rolls.server.service.JwtService;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {

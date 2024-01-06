@@ -1,4 +1,4 @@
-package ru.rolls.server.Service;
+package ru.rolls.server.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,14 +7,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
-import ru.rolls.server.Entity.Client;
-import ru.rolls.server.Entity.Employee;
-import ru.rolls.server.Entity.Token;
-import ru.rolls.server.Model.AuthenticationResponse;
-import ru.rolls.server.Model.EmployeeAuthenticationRequest;
-import ru.rolls.server.Repo.ClientRepo;
-import ru.rolls.server.Repo.EmployeeRepo;
-import ru.rolls.server.Repo.TokenRepo;
+import ru.rolls.server.entity.Client;
+import ru.rolls.server.entity.Employee;
+import ru.rolls.server.entity.Token;
+import ru.rolls.server.model.AuthenticationResponse;
+import ru.rolls.server.model.EmployeeAuthenticationRequest;
+import ru.rolls.server.repo.ClientRepo;
+import ru.rolls.server.repo.EmployeeRepo;
+import ru.rolls.server.repo.TokenRepo;
 
 @Service
 public class AuthenticationService {

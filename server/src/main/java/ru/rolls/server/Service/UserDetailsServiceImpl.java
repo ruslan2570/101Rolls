@@ -1,4 +1,4 @@
-package ru.rolls.server.Service;
+package ru.rolls.server.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +14,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import ru.rolls.server.Entity.Client;
-import ru.rolls.server.Entity.Employee;
-import ru.rolls.server.Repo.ClientRepo;
-import ru.rolls.server.Repo.EmployeeRepo;
+import ru.rolls.server.entity.Client;
+import ru.rolls.server.entity.Employee;
+import ru.rolls.server.repo.ClientRepo;
+import ru.rolls.server.repo.EmployeeRepo;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 

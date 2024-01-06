@@ -1,4 +1,4 @@
-package ru.rolls.server.Entity;
+package ru.rolls.server.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

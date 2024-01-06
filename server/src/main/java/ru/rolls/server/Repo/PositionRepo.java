@@ -1,8 +1,8 @@
-package ru.rolls.server.Repo;
+package ru.rolls.server.repo;
 
 import org.springframework.data.repository.CrudRepository;
 
-import ru.rolls.server.Entity.Position;
+import ru.rolls.server.entity.Position;
 
 public interface PositionRepo extends CrudRepository<Position, Long> {
     

@@ -1,4 +1,4 @@
-package ru.rolls.server.Model;
+package ru.rolls.server.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

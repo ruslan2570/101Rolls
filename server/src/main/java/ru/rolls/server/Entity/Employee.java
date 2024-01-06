@@ -1,4 +1,4 @@
-package ru.rolls.server.Entity;
+package ru.rolls.server.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -13,13 +13,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import ru.rolls.server.Entity.Employee;
-import ru.rolls.server.Entity.EmployeeRole;
-import ru.rolls.server.Entity.Restaurant;
-import ru.rolls.server.Repo.ClientRepo;
-import ru.rolls.server.Repo.EmployeeRepo;
-import ru.rolls.server.Repo.RestaurantRepo;
-import ru.rolls.server.Service.AuthenticationService;
+import ru.rolls.server.entity.Employee;
+import ru.rolls.server.entity.EmployeeRole;
+import ru.rolls.server.entity.Restaurant;
+import ru.rolls.server.repo.ClientRepo;
+import ru.rolls.server.repo.EmployeeRepo;
+import ru.rolls.server.repo.RestaurantRepo;
+import ru.rolls.server.service.AuthenticationService;
 
 @SpringBootApplication
 public class ServerApplication {

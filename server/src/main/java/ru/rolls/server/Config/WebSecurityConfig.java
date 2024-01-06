@@ -1,4 +1,4 @@
-package ru.rolls.server.Config;
+package ru.rolls.server.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,14 +18,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
-import static ru.rolls.server.Entity.EmployeeRole.ADMIN;
-import static ru.rolls.server.Entity.EmployeeRole.DELIVERER;
-import static ru.rolls.server.Entity.EmployeeRole.OPERATOR;
-import static ru.rolls.server.Entity.EmployeeRole.CHEF;
+import static ru.rolls.server.entity.EmployeeRole.ADMIN;
+import static ru.rolls.server.entity.EmployeeRole.CHEF;
+import static ru.rolls.server.entity.EmployeeRole.DELIVERER;
+import static ru.rolls.server.entity.EmployeeRole.OPERATOR;
 
 import ru.rolls.server.AuthProvider;
 import ru.rolls.server.JwtAuthenticationFilter;
-import ru.rolls.server.Service.UserDetailsServiceImpl;
+import ru.rolls.server.service.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity

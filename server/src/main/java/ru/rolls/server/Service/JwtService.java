@@ -1,4 +1,4 @@
-package ru.rolls.server.Service;
+package ru.rolls.server.service;
 
 import java.security.Key;
 import java.util.Date;
@@ -16,7 +16,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import ru.rolls.server.Entity.Employee;
+import ru.rolls.server.entity.Employee;
 
 @Service
 public class JwtService {

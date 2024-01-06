@@ -1,4 +1,4 @@
-package ru.rolls.server.Config;
+package ru.rolls.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import ru.rolls.server.AuthProvider;
-import ru.rolls.server.Service.UserDetailsServiceImpl;
+import ru.rolls.server.service.UserDetailsServiceImpl;
 
 @Configuration
 public class ApplicationConfig {

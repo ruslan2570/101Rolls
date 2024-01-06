@@ -1,4 +1,4 @@
-package ru.rolls.server.Controller;
+package ru.rolls.server.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ru.rolls.server.Model.EmployeeAuthenticationRequest;
-import ru.rolls.server.Model.AuthenticationResponse;
 import ru.rolls.server.Service.AuthenticationService;
+import ru.rolls.server.service.AuthenticationService;
+import ru.rolls.server.Model.AuthenticationResponse;quest;
 
 @Controller
 @RequestMapping("/auth")

@@ -1,4 +1,4 @@
-package ru.rolls.server.Entity;
+package ru.rolls.server.entity;
 
 
 public enum IssueType {
