@@ -1,9 +1,8 @@
 package ru.rolls.server.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
@@ -32,14 +31,12 @@ public class AuthenticationService {
         JwtService jwtService;
 
         @Autowired
-        AuthenticationManager authenticationManager;
+        AuthenticationProvider authenticationProvider;
 
-        Logger logger = LoggerFactory.getLogger(getClass());
 
         public AuthenticationResponse authenticateEmployee(EmployeeAuthenticationRequest request) {
-                logger.debug("аутентификация");
 
-                authenticationManager.authenticate(
+                authenticationProvider.authenticate(
                                 new UsernamePasswordAuthenticationToken(
                                                 request.getLogin(),
                                                 request.getPassword()));

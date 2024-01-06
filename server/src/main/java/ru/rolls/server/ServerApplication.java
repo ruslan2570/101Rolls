@@ -5,8 +5,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,10 +21,6 @@ import ru.rolls.server.service.AuthenticationService;
 
 @SpringBootApplication
 public class ServerApplication {
-
-
-	        Logger logger = LoggerFactory.getLogger(getClass());
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);
@@ -77,8 +71,6 @@ public class ServerApplication {
 			employees.add(chef);
 
 			employeeRepo.saveAll(employees);
-
-			logger.debug("Алло");
 
 		};
 	}

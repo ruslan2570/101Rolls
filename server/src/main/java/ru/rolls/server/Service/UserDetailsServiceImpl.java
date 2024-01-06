@@ -1,14 +1,6 @@
 package ru.rolls.server.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,9 +22,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     EmployeeRepo employeeRepo;
 
-        Logger logger = LoggerFactory.getLogger(getClass());
-
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -47,8 +36,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
             user = employee;
         }
-
-        logger.debug("Здесь UserDetails");
 
 
         if (user == null)

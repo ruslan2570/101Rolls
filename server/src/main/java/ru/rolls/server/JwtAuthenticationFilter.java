@@ -2,9 +2,6 @@ package ru.rolls.server;
 
 import java.io.IOException;
 
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,8 +32,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     TokenRepo tokenRepo;
 
-    Logger logger = LoggerFactory.getLogger(getClass());
-
     @Override
     protected void doFilterInternal(
             HttpServletRequest request,
@@ -46,7 +41,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
-        logger.debug("Здесь фильтр");
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
         final String userEmail;
