@@ -1,5 +1,6 @@
 package ru.rolls.server.controller.entity;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,14 +47,23 @@ public class IngredientController {
 
     @PostMapping
     public ResponseEntity<Ingredient> addIngredient(
-        @RequestBody Ingredient ingredient){
+            @RequestBody Ingredient ingredient) {
         return new ResponseEntity<>(ingredientService.addIngredient(ingredient), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteIngredient(
             @PathVariable(name = "id", required = true) Long id) {
-        if (ingredientService.removeIngredient(id)) {
+
+        HashMap<String, Boolean> hm = ingredientService.removeIngredient(id);
+
+        boolean isExists = hm.get("isExists");
+        boolean havePositions = hm.get("havePositions");
+
+        if (isExists) {
+            if (havePositions) {
+                return new ResponseEntity<>(HttpStatus.CONFLICT);
+            }
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

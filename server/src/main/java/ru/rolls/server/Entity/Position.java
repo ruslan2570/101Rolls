@@ -53,6 +53,9 @@ public class Position {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
+    @Column(nullable = false)
+    private Boolean isEnabled;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "positions_ingredients",
