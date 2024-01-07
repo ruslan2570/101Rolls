@@ -28,7 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
     UserDetailsService userDetailsService;
-    
+
     @Autowired
     TokenRepo tokenRepo;
 
@@ -48,8 +48,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
-            jwt = authHeader.substring(7);
-        username = jwtService.extractUsername(jwt);
+        jwt = authHeader.substring(7);
+        try {
+            username = jwtService.extractUsername(jwt);
+        } catch (RuntimeException e) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
             if (jwtService.isTokenValid(jwt, userDetails)) {
