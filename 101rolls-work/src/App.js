@@ -6,16 +6,12 @@ import AuthProvider from './authProvider.js';
 function App() {
   return (
 
-    <AuthProvider>
-
-
       <Routes>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/*' element={<Workspace />}>
           <Route path='dashboard' element={<> dashboard </>}></Route>
         </Route>
       </Routes>
-    </AuthProvider>
 
   );
 }

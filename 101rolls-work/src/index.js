@@ -11,14 +11,13 @@ import AuthProvider from './authProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <AuthProvider>
     <BrowserRouter>
-      <AuthProvider>
-        <ToasterProvider>
-          <App />
-          <ToasterComponent className="optional additional classes g-root g-root_theme_light" />
-        </ToasterProvider>
-      </AuthProvider>
+      <ToasterProvider>
+        <App />
+        <ToasterComponent className="optional additional classes g-root g-root_theme_light" />
+      </ToasterProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </AuthProvider>
+
 );

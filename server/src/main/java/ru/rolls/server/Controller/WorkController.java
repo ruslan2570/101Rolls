@@ -1,6 +1,7 @@
 package ru.rolls.server.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import ru.rolls.server.model.dto.employee.EmployeeDTO;
 
 @Controller
 @RequestMapping("/work")
-
+@PreAuthorize("hasAnyAuthority('ADMIN', 'OPERATOR', 'CHEF', 'DELIVERER')")
 public class WorkController {
     
     @GetMapping("/me")

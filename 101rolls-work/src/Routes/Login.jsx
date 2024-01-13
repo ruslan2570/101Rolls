@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { Container, Row, Col, Flex, Button, spacing, Icon, Alert, Toaster, useToaster } from '@gravity-ui/uikit';
-import { Gear } from '@gravity-ui/icons';
+import { Toaster, useToaster } from '@gravity-ui/uikit';
+import { } from '@gravity-ui/icons';
 import { useAuth } from "../authProvider";
 import serverUrl from '../Consts/serverUrl';
 
