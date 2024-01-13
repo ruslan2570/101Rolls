@@ -1,12 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../AuthProvider";
-import serverUrl from "../Consts/ServerUrl";
+import { useAuth } from "../authProvider";
+import serverUrl from "../Consts/serverUrl";
 import axios from "axios";
 
 
 
 
-function Workspace() {
+const Workspace = () => {
 
     const { token } = useAuth();
    

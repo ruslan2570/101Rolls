@@ -1,5 +1,7 @@
 package ru.rolls.server.service;
 
+import java.util.function.Supplier;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,11 +30,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserDetails user = null;
 
         if (isPhoneNumber(username)) {
-            Client client = clientRepo.findByPhone(username).get();
+            Client client = clientRepo.findByPhone(username).orElseThrow(() -> new UsernameNotFoundException("User isn't found1"));
 
             user = client;
         } else {
-            Employee employee = employeeRepo.findByLogin(username).get();
+            Employee employee = employeeRepo.findByLogin(username).orElseThrow(() -> new UsernameNotFoundException("Employee isn't found1"));
 
             user = employee;
         }

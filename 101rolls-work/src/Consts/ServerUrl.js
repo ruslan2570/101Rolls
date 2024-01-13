@@ -1,4 +1,4 @@
 
-const serverUrl =  "https://localhost:20101";
+const serverUrl =  "http://127.0.0.1:20101";
 
 export default serverUrl;

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Login from './Routes/Login.jsx';
 import Workspace from './Routes/Workspace.jsx';
-import AuthProvider from './AuthProvider.js';
+import AuthProvider from './authProvider.js';
 
 function App() {
   return (
