@@ -57,13 +57,13 @@ public class Employee implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Restaurant restaurant;
 
     @OneToMany(mappedBy = "deliverer", fetch = FetchType.LAZY)
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "operator", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "operator", fetch = FetchType.EAGER)
     private List<DeliveryAddress> checkedAddresses;
 
     @Enumerated(EnumType.STRING)

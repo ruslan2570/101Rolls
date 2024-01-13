@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.CorsConfigurer;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -19,6 +20,7 @@ import static ru.rolls.server.entity.EmployeeRole.DELIVERER;
 import static ru.rolls.server.entity.EmployeeRole.OPERATOR;
 
 import ru.rolls.server.AuthProvider;
+import ru.rolls.server.CorsFilter;
 import ru.rolls.server.JwtAuthenticationFilter;
 
 @Configuration
@@ -31,6 +33,9 @@ public class WebSecurityConfig {
 
 	@Autowired
 	JwtAuthenticationFilter jwtAuthFilter;
+
+	@Autowired
+	CorsFilter corsFilter;
 	
 	@Autowired
 	LogoutHandler logoutHandler;
@@ -38,6 +43,7 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
+		.cors(CorsConfigurer::disable)
 		.csrf(AbstractHttpConfigurer::disable)
 		.authorizeHttpRequests(req -> 
 			req.requestMatchers("/**")
@@ -53,6 +59,7 @@ public class WebSecurityConfig {
 		.sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
         .authenticationProvider(authProvider)
 		.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+		.addFilterBefore(corsFilter, JwtAuthenticationFilter.class)
                 .logout(logout ->
                         logout.logoutUrl("/auth/logout")
                                 .addLogoutHandler(logoutHandler)

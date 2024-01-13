@@ -1,13 +1,128 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.g-root {
+  --g-font-family-sans: 'Inter', sans-serif;
+
+  --g-text-header-font-weight: 600;
+  --g-text-subheader-font-weight: 600;
+  --g-text-display-font-weight: 600;
+  --g-text-accent-font-weight: 600;
+  --g-color-base-brand: rgb(45, 87, 194);
+  --g-color-base-brand-hover: rgb(99, 143, 255);
+  --g-color-base-selection: rgba(82, 130, 255, 0.05);
+  --g-color-base-selection-hover: rgba(82, 130, 255, 0.1);
+  --g-color-line-brand: rgb(117, 155, 255);
+  --g-color-text-brand: rgb(117, 155, 255);
+  --g-color-text-brand-contrast: rgb(255, 255 ,255);
+  --g-color-text-link: rgb(117, 155, 255);
+  --g-color-text-link-hover: rgb(82, 130, 255);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body {
+  margin: 0px;
+}
+
+/* p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+span {
+  font-style: normal;
+  line-height: normal;
+  font-family: Jost;
+} */
+
+header {
+  width: 100%;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.auth_header {}
+
+.header_container{
+  padding-top: 5px;
+  padding-left:  100px;
+}
+
+.work_header_container{
+  display: flex;
+
+}
+
+nav{
+  margin-left: 100px;
+  align-self: center;
+}
+
+nav > a{
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+
+
+.auth_container {
+  position: absolute;
+  padding: 50px;
+  padding-top: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* padding: 100px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.auth_container>h2 {
+  /* padding-bottom: 35px;
+  padding-left: 25px;
+  padding-right: 50px; */
+}
+
+.auth_input_container {
+  padding-bottom: 10px;
+  align-self: center;
+}
+
+.auth_input {
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+  height: 35px;
+  width: 220px;
+}
+
+.auth_input:focus {
+  border: 1px solid #999;
+}
+
+.btn-submit {
+  height: 45px;
+  width: 100px;
+  border-radius: 10px;
+  font-size: 18px;
+  border: 1px solid #ea3939;
+  background-color: #ea3939;
+  color: #fafafa;
+}
+
+.btn-submit:hover {
+  border: 1px solid #c12b2b;
+  background-color: #c12b2b;
+}
+
+.auth_control {
+  margin-bottom: 10px;
+}
+
+.auth_input_container>div>label {
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
