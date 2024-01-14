@@ -1,22 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../authProvider";
 import serverUrl from "../Consts/serverUrl";
 import axios from "axios";
-import {useToaster, Toaster } from "@gravity-ui/uikit";
-import {uuidv4} from "../util";
+import { useToaster, Toaster, Tabs } from "@gravity-ui/uikit";
+import { uuidv4 } from "../util";
 
 
 const Workspace = () => {
 
+    const [ employee, setEmployee ] = useState(null);
+
+    const [ tabItems, setTabItems ] = useState([]);
+
     const { token, setToken } = useAuth();
 
-    const {add: addToaster } = useToaster();
+    const { add: addToaster } = useToaster();
 
     const axiosInstance = axios.create({
         baseURL: serverUrl,
         timeout: 1000
-      });
+    });
 
     useEffect(() => {
 
@@ -43,13 +47,13 @@ const Workspace = () => {
 
         }
 
-        const getEmployee = async () => {
+        const fetchEmployee = async () => {
 
             try {
 
                 const response = await axiosInstance.get('/work/me');
-                return response.data;
-            } catch{
+                setEmployee(response.data);
+            } catch {
                 const toaster = new Toaster();
                 toaster.name = uuidv4();
                 toaster.title = "Ошибка выполнения запроса"
@@ -60,9 +64,8 @@ const Workspace = () => {
 
         }
 
-        const buildWorkspace = async (employeePromise) => {
-            let employee = await employeePromise;
-            if(employee == null){
+        const buildWorkspace = async () => {
+            if (employee == null) {
                 const toaster = new Toaster();
                 toaster.name = uuidv4();
                 toaster.title = "Не удалось получить данные сотрудника"
@@ -71,7 +74,9 @@ const Workspace = () => {
                 return;
             }
 
-            console.log(employee);
+
+
+
         }
 
         const parsedToken = parseJwt(token);
@@ -81,19 +86,38 @@ const Workspace = () => {
 
 
         if (parsedToken && parsedToken.exp * 1000 > (new Date()).getTime()) {
-            const employeePromise = getEmployee();
-            buildWorkspace(employeePromise);
+            fetchEmployee()
+            buildWorkspace();
         } else {
-            console.log("asdasd");
             return <Navigate to="/login" />;
         }
 
 
 
-    }, [token])
+    }, [token, employee])
+
+
 
     return (
         <>
+            <header className="auth_header">
+
+                {employee == null && tabItems == [] &&
+                    <div className="header_container">
+                        <img src="logo.png"></img>
+                        <Tabs
+                            className="header-tabs"
+                            activeTab={tabItems[0]}
+                            items={tabItems}
+                        />
+
+                    </div>
+                }
+
+
+
+            </header>
+
             Workspace
 
             <Outlet></Outlet>

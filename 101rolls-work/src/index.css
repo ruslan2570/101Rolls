@@ -5,17 +5,17 @@
   --g-text-subheader-font-weight: 600;
   --g-text-display-font-weight: 600;
   --g-text-accent-font-weight: 600;
-  --g-color-base-brand: rgb(45, 87, 194);
-  --g-color-base-brand-hover: rgb(99, 143, 255);
+
+  --g-color-base-brand: #ea3939;
+  --g-color-base-brand-hover: #c12b2b;
   --g-color-base-selection: rgba(82, 130, 255, 0.05);
   --g-color-base-selection-hover: rgba(82, 130, 255, 0.1);
-  --g-color-line-brand: rgb(117, 155, 255);
-  --g-color-text-brand: rgb(117, 155, 255);
+  --g-color-line-brand: #d20f0f;
+  --g-color-text-brand: #e22929;
   --g-color-text-brand-contrast: rgb(255, 255 ,255);
   --g-color-text-link: rgb(117, 155, 255);
   --g-color-text-link-hover: rgb(82, 130, 255);
 }
-
 
 body {
   margin: 0px;
@@ -46,6 +46,11 @@ header {
 .header_container{
   padding-top: 5px;
   padding-left:  100px;
+  display: flex;
+}
+
+.header-tabs{
+  margin-left: 50px;
 }
 
 .work_header_container{
