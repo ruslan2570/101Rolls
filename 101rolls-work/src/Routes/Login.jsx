@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Toaster, useToaster } from '@gravity-ui/uikit';
 import { } from '@gravity-ui/icons';
 import { useAuth } from "../authProvider";
+import { uuidv4 } from '../util';
 import serverUrl from '../Consts/serverUrl';
 
 
@@ -15,7 +16,7 @@ const Login = ({ }) => {
 
     const { setToken } = useAuth();
 
-    const { add } = useToaster();
+    const { add:addToaster } = useToaster();
 
     const onChangeInput = (e) => {
         if (e.target.id === "password") {
@@ -28,11 +29,6 @@ const Login = ({ }) => {
 
     const makeLogin = async () => {
 
-        function uuidv4() {
-            return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
-                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-            );
-        }
 
         const toaster = new Toaster();
         toaster.name = uuidv4();
@@ -40,7 +36,7 @@ const Login = ({ }) => {
 
         if (login == '' || password == '') {
             toaster.title = "Введите данные для входа";
-            add(toaster);
+            addToaster(toaster);
             return;
         }
 
@@ -80,7 +76,7 @@ const Login = ({ }) => {
         }
 
         if (toaster.title != undefined) {
-            add(toaster);
+            addToaster(toaster);
         }
 
     }
