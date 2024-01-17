@@ -59,7 +59,6 @@ const Workspace = () => {
                 toaster.title = "Ошибка выполнения запроса"
                 toaster.type = "error";
                 addToaster(toaster);
-                return undefined;
             }
 
         }

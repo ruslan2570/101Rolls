@@ -2,7 +2,6 @@ package ru.rolls.server.model.dto.employee;
 
 import lombok.Data;
 import ru.rolls.server.entity.Employee;
-import ru.rolls.server.repo.EmployeeRepo;
 
 @Data
 public class EmployeeDTO {
